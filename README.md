@@ -127,17 +127,6 @@ And you will see the generated file in `dist` that ready to be served.
   - [Windi CSS Intellisense](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense) - IDE support for Windi CSS
   - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
-
-## Checklist
-
-When you use this template, try follow the checklist to update your info properly
-
-- [x] Change the author name in `LICENSE`
-- [ ] Change the title in `App.vue`
-- [ ] Change the favicon in `public`
-- [x] Remove the `.github` folder which contains the funding info
-- [ ] Clean up the READMEs and remove routes
-
 ### Deploy on Netlify
 
 Go to [Netlify](https://app.netlify.com/start) and select your clone, `OK` along the way, and your App will be live in a minute.
