@@ -4,6 +4,7 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    CullingPage: typeof import('./components/CullingPage.vue')['default']
     ImageUploadBtn: typeof import('./components/ImageUploadBtn.vue')['default']
     README: typeof import('./components/README.md')['default']
   }

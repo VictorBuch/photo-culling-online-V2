@@ -4,18 +4,19 @@ const { t } = useI18n()
 </script>
 
 <script lang="ts">
-export default{
+export default {
   data() {
     return {
       areImagesLoaded: false,
+      loadedClusterArray: [[]],
     }
   },
   methods: {
-    imagesLoaded(e){
+    imagesLoaded(e) {
       this.areImagesLoaded = true
-      
+      this.loadedClusterArray = e.array
     },
-  },  
+  },
 }
 
 </script>
@@ -23,8 +24,8 @@ export default{
 <template>
   <section v-if="!areImagesLoaded">
     <div class=" w-screen h-screen flex my-auto mx-auto justify-center items-center overflow-hidden">
-      <ImageUploadBtn @loaded="imagesLoaded"/>
+      <ImageUploadBtn @loaded="imagesLoaded" />
     </div>
   </section>
-  <CullingView v-if="areImagesLoaded" />
+  <CullingPage v-if="areImagesLoaded" :cluster-array="loadedClusterArray" />
 </template>

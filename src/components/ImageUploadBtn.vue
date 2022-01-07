@@ -1,3 +1,5 @@
+<!-- THIS component handles the upload, extraction of metadata,sorting and clustering the images and emits the cluster array to the parent. -->
+
 <template>
   <div v-if="!areImageUploaded" class="flex flex-row">
     <label class="bg-red-800 rounded-lg p-3 cursor-pointer">
@@ -34,6 +36,11 @@ export default {
       imageFileArr: [],
       images2DArray: [],
       areImageUploaded: false,
+      clusterArray: [[]],
+      prevClusterIndex: 0,
+      clusterNum: 0,
+      interval: 2800,
+      prevDateTimeOriginal: null,
     }
   },
   methods: {
@@ -83,7 +90,33 @@ export default {
       }
 
       this.sortByDateTimeOriginal(this.images2DArray)
-      this.$emit('loaded', [this.images2DArray])
+
+      this.images2DArray.forEach((element, index) => {
+        // if our PrevlasMod is not set set it to the first elements lastMod, we can do this cuz the array is sorted
+        if (this.prevDateTimeOriginal === null)
+          this.prevDateTimeOriginal = element[1]
+
+        // check if the image creation date is within the interval compared to the previous image
+        if (
+          Math.abs(element[1] - this.prevDateTimeOriginal) > this.interval
+      || index === this.images2DArray.length - 1
+        ) {
+          // the image element is not within the threshold so make a new cluster
+          if (index === this.images2DArray.length - 1)
+            this.clusterArray.push([this.prevClusterIndex, index + 1])
+          else
+            this.clusterArray.push([this.prevClusterIndex, index])
+
+          this.prevClusterIndex = index
+          this.clusterNum++
+          this.prevDateTimeOriginal = element[1]
+        }
+        else {
+          this.prevDateTimeOriginal = element[1]
+        }
+      })
+
+      this.$emit('loaded', { array: this.clusterArray })
     },
   },
 }
