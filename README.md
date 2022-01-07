@@ -1,3 +1,7 @@
+# Online Photo Culling
+This project is a continuation of a Bachelor project, aimed at helping professional photographers cull faster
+
+
 ## Usage
 
 ### Development
@@ -17,6 +21,21 @@ pnpm build
 ```
 
 And you will see the generated file in `dist` that ready to be served.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Features
 
