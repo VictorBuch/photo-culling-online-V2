@@ -1,8 +1,11 @@
-# Online Photo Culling
-This project is a continuation of a Bachelor project, aimed at helping professional photographers cull faster
+## Introduction
 
+This projects proposes a solution to automate the process of culling photos. The design of the system is informed by etnographic studies with professional photographers: the system first clusters similar images, then evalutes their aesthetics within the created clusters and suggest the top choices for each moment. Because of the highly subjective nature of assessing aesthetics of an image, the system is designed to learn from the photographer without compromising the interaction with the system.
+<!-- 
+# Implementation
 
-## Usage
+We divide the methods for Image Aesthetics Assessment (IAA) into Generic vs Personalized (whether or not the system uses personal data to learn) and Individual vs Comparative (one image -> aesthetic score or two images -> index of the better one). Using AVA dataset, we trained a Generic Individual IAA model to predicts a user distribution of scores. This we reused as the image encoder of a Generic Comparative IAA model, which we built as a Siamese neural network with custom comparison layer. The system takes two images at a time, encodes them into their feature vectors (in our case simply the distribution of user scores) and then manually compares the means of these histograms to finally predicts the index of a more aesthetic image. Finally, the model is personalized on ~25k image pairs of horses (pairing accepted and rejected horse images from the same clusters). The performance of the different models is documented in their respective evaluation scripts. -->
+
 
 ### Development
 
@@ -76,16 +79,6 @@ And you will see the generated file in `dist` that ready to be served.
 <br>
 
 ## Pre-packed
-
-### UI Frameworks
-
-- [Windi CSS](https://github.com/windicss/windicss) (On-demand [TailwindCSS](https://tailwindcss.com/)) - lighter and faster, with a bunch of additional features!
-  - [Windi CSS Typography](https://windicss.org/plugins/official/typography.html)
-
-### Icons
-
-- [Iconify](https://iconify.design) - use icons from any icon sets [🔍Icônes](https://icones.netlify.app/)
-- [`unplugin-icons`](https://github.com/antfu/unplugin-icons) - icons as Vue components
 
 ### Plugins
 
