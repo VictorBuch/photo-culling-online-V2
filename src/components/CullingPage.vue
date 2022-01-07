@@ -7,15 +7,32 @@
   <section class="">
     <!-- Clusters -->
     <div v-for="cluster in clusterArray" :key="cluster[0]" class="flex flex-row w-full h-full mb-1 bg-dark-500 ">
-      <div class="flex flex-col p-4 pr-10 items-start">
+      <div class="flex flex-col p-3 pr-6 items-center">
         <h1>0 out of 10</h1>
-        <h1>Arrow</h1>
+        <svg
+          class="my-auto cursor-pointer"
+          xmlns="http://www.w3.org/2000/svg"
+          width="13.443"
+          height="22.644"
+          viewBox="0 0 13.443 22.644"
+        >
+          <path
+            id="Path_49"
+            data-name="Path 49"
+            d="M-4098,3547.375l10.261,10.261,10.261-10.261"
+            transform="translate(-3546.315 -4076.417) rotate(-90)"
+            fill="none"
+            stroke="#fe8029"
+            strokeWidth="3"
+          />
+        </svg>
       </div>
       <!-- Image cards -->
       <div v-for="image in cluster" :key="image[0]" class="flex flex-col w-96 max-h-3/5 p-2  overflow-auto justify-center items-center">
-        <img class="object-contain w-full max-h-[25rem] rounded mb-2" :src="image[0]" alt="" srcset="">
+        <img class="object-contain w-full max-h-[25rem] rounded mb-2 cursor-pointer" :src="image[0]" alt="" srcset="">
         <svg
           id="Component_3_9"
+          class="cursor-pointer"
           data-name="Component 3 – 9"
           xmlns="http://www.w3.org/2000/svg"
           width="19"
