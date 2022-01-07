@@ -66,7 +66,6 @@ export default {
       this.areImageUploaded = true
 
       this.imageFileArr.push(e.target.files) // gets a file object with all files
-      console.warn(this.imageFileArr)
 
       // Loop trough all the local images and creat blob elements for later use
       for (let i = 0; i < this.imageFileArr[0].length; i++) {
@@ -91,6 +90,9 @@ export default {
 
       this.sortByDateTimeOriginal(this.images2DArray)
 
+      console.warn('this.images2DArray')
+      console.warn(this.images2DArray)
+
       this.images2DArray.forEach((element, index) => {
         // if our PrevlasMod is not set set it to the first elements lastMod, we can do this cuz the array is sorted
         if (this.prevDateTimeOriginal === null)
@@ -103,9 +105,9 @@ export default {
         ) {
           // the image element is not within the threshold so make a new cluster
           if (index === this.images2DArray.length - 1)
-            this.clusterArray.push([this.prevClusterIndex, index + 1])
+            this.clusterArray.push(this.images2DArray.slice(this.prevClusterIndex, index + 1))
           else
-            this.clusterArray.push([this.prevClusterIndex, index])
+            this.clusterArray.push(this.images2DArray.slice(this.prevClusterIndex, index))
 
           this.prevClusterIndex = index
           this.clusterNum++
@@ -115,7 +117,7 @@ export default {
           this.prevDateTimeOriginal = element[1]
         }
       })
-
+      this.clusterArray.shift()
       this.$emit('loaded', { array: this.clusterArray })
     },
   },
