@@ -1,73 +1,62 @@
 <!-- THIS component handles all of the culling -->
+<script>
+import ExpandClusterBtn from './expandClusterBtn.vue'
+export default {
+  components: { ExpandClusterBtn },
+  props: {
+    clusterArray: { type: Array, required: true },
+  },
+  data() {
+    return {
+      totalNumSelectedImages: 100,
+      expandedClusters: [],
+    }
+  },
+  computed: {
+    isClusterExpanded() {
+      return open => this.expandedClusters.includes(open)
+    },
+  },
+  methods: {
+    handleExpandCluster(cluster) {
+      if (this.isClusterExpanded(cluster))
+        this.expandedClusters.splice(this.expandedClusters.indexOf(cluster), 1)
+
+      else
+        this.expandedClusters.push(cluster)
+    },
+  },
+}
+
+</script>
 
 <template>
   <!-- TODO: Make this a component -->
-  <!-- <div id="NetflixView">
+  <div id="NetflixView">
     <nav class="flex sticky top-0 py-2 pb-3 pl-4 items-start bg-dark-800">
       Accepted pictures: {{ totalNumSelectedImages }} of {{ totalNumSelectedImages }}
     </nav>
     <section>
-
-      <div v-for="cluster in clusterArray" :key="cluster[0]" class="flex flex-row w-full h-full mb-1 bg-dark-500 ">
+      <div v-for="cluster in clusterArray" :key="cluster[0][0]" class="flex flex-row w-full h-full mb-1 bg-dark-500 overflow-auto">
         <div class="flex flex-col p-3 pr-6 items-center">
-          <h1>0 out of 10</h1>
-          <svg
-            class="my-auto cursor-pointer hover:opacity-70"
-            xmlns="http://www.w3.org/2000/svg"
-            width="13.443"
-            height="22.644"
-            viewBox="0 0 13.443 22.644"
-          >
-            <path
-              id="Path_49"
-              data-name="Path 49"
-              d="M-4098,3547.375l10.261,10.261,10.261-10.261"
-              transform="translate(-3546.315 -4076.417) rotate(-90)"
-              fill="none"
-              stroke="#fe8029"
-              strokeWidth="3"
-            />
-          </svg>
+          <h1 class="mb-10">
+            0 out of 10
+          </h1>
+          <ExpandClusterBtn @expanded-cluster-change="handleExpandCluster(cluster[0][0])" />
         </div>
-
-        <div v-for="image in cluster" :key="image[0]" class="flex flex-col w-96 max-h-3/5 p-2  overflow-auto justify-center items-center">
-          <img class="object-fill w-full max-h-[25rem] rounded mb-2 cursor-pointer border border-dark-500 hover:border-light-800 hover:border" :src="image[0]" alt="" srcset="">
-          <svg
-            id="Component_3_9"
-            class="cursor-pointer hover:opacity-70"
-            data-name="Component 3 – 9"
-            xmlns="http://www.w3.org/2000/svg"
-            width="19"
-            height="17"
-            viewBox="0 0 19 17"
-          >
-            <g
-              id="Rectangle_95"
-              data-name="Rectangle 95"
-              fill="#fe8029"
-              stroke="#fe8029"
-              strokeWidth="1"
-            >
-              <rect width="19" height="17" stroke="none" />
-              <rect x="0.5" y="0.5" width="18" height="16" fill="none" />
-            </g>
-            <path
-              id="Path_30"
-              data-name="Path 30"
-              d="M105.618,1053.058l4.275,4.1,7.391-9.832"
-              transform="translate(-101.724 -1044.227)"
-              fill="none"
-              stroke="#181818"
-              strokeLinejoin="round"
-              strokeWidth="2"
-            />
-          </svg>
+        <!-- TODO: Make actual layout work when expanded -->
+        <div :class="[isClusterExpanded(cluster[0][0]) ? 'grid-rows-4 grid-cols-4' : 'flex flex-row']" class=" w-full h-full">
+          <div v-for="image in cluster" :key="image[0]" class="flex flex-col w-96 max-h-3/5 p-2  overflow-auto justify-center items-center">
+            <img class="object-fill w-full max-h-[25rem] rounded mb-2 cursor-pointer border border-dark-500 hover:border-light-800 hover:border" :src="image[0]" alt="" srcset="">
+            <AcceptBtn />
+          </div>
         </div>
       </div>
     </section>
-  </div> -->
+  </div>
 
-  <div>
+  <!-- TODO: Fix vertical cluster styling -->
+  <!-- <div>
     <section>
       <div class="flex flex-col items-start w-64 p-4">
         <div className="flex flex-row items-center ">
@@ -85,7 +74,6 @@
             Clusters
           </h1>
         </div>
-        <!-- TODO: Fix vertical cluster styling -->
         <div class="flex flex-col justify-center items-center w-full my-6">
           <div class="">
             <img class="" :src="clusterArray[0][0][0]" alt="" srcset="">
@@ -98,24 +86,8 @@
         </div>
       </div>
     </section>
-  </div>
+  </div> -->
 </template>
-
-<script lang="ts">
-export default {
-  props: {
-    clusterArray: { type: Array, required: true },
-  },
-  data() {
-    return {
-      totalNumSelectedImages: 100,
-    }
-  },
-  methods: {
-  },
-}
-
-</script>
 
 <style scoped>
 
