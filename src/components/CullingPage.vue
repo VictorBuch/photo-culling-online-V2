@@ -17,6 +17,9 @@ export default {
       return open => this.expandedClusters.includes(open)
     },
   },
+  mounted() {
+    console.warn(this.clusterArray)
+  },
   methods: {
     handleExpandCluster(cluster) {
       if (this.isClusterExpanded(cluster))
@@ -37,17 +40,17 @@ export default {
       Accepted pictures: {{ totalNumSelectedImages }} of {{ totalNumSelectedImages }}
     </nav>
     <section>
-      <div v-for="cluster in clusterArray" :key="cluster[0][0]" class="flex flex-row w-full h-full mb-1 bg-dark-500 overflow-auto">
-        <div class="flex flex-col p-3 pr-6 items-center">
+      <div v-for="cluster in clusterArray" :key="cluster[0].blob" class="flex flex-row w-full h-full mb-1 bg-dark-500 overflow-auto">
+        <div class="flex flex-col p-3 pr-6 items-center ">
           <h1 class="mb-10">
             0 out of 10
           </h1>
-          <ExpandClusterBtn @expanded-cluster-change="handleExpandCluster(cluster[0][0])" />
+          <ExpandClusterBtn @expanded-cluster-change="handleExpandCluster(cluster[0].blob)" />
         </div>
         <!-- TODO: Make actual layout work when expanded -->
-        <div :class="[isClusterExpanded(cluster[0][0]) ? 'grid-rows-4 grid-cols-4' : 'flex flex-row']" class=" w-full h-full">
-          <div v-for="image in cluster" :key="image[0]" class="flex flex-col w-96 max-h-3/5 p-2  overflow-auto justify-center items-center">
-            <img class="object-fill w-full max-h-[25rem] rounded mb-2 cursor-pointer border border-dark-500 hover:border-light-800 hover:border" :src="image[0]" alt="" srcset="">
+        <div :class="[isClusterExpanded(cluster[0].blob) ? 'grid-rows-4 grid-cols-4' : 'flex flex-row']" class=" w-full h-full">
+          <div v-for="image in cluster" :key="image.blob" class="flex flex-col w-96 max-h-3/5 p-2  overflow-auto justify-center items-center">
+            <img class="object-fill w-full max-h-[25rem] rounded mb-2 cursor-pointer border border-dark-500 hover:border-light-800 hover:border" :src="image.blob" alt="" srcset="">
             <AcceptBtn />
           </div>
         </div>
@@ -88,6 +91,11 @@ export default {
     </section>
   </div> -->
 </template>
+
+<!-- // FNumber ('F/FNumber')
+      // ISO
+      // FocalLength ('mm')
+      // LensModel -->
 
 <style scoped>
 
