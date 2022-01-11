@@ -29,3 +29,7 @@ export default {
   </section>
   <CullingPage v-if="areImagesLoaded" :cluster-array="loadedClusterArray" />
 </template>
+
+<style>
+
+</style>
