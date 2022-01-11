@@ -9,6 +9,7 @@ declare module 'vue' {
     ExpandClusterBtn: typeof import('./components/expandClusterBtn.vue')['default']
     ImageUploadBtn: typeof import('./components/ImageUploadBtn.vue')['default']
     README: typeof import('./components/README.md')['default']
+    VerticalClusters: typeof import('./components/VerticalClusters.vue')['default']
   }
 }
 
