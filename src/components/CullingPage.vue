@@ -60,10 +60,25 @@ export default {
 
   <!-- TODO: Fix vertical cluster styling -->
   <div>
-    <section class="fullscreen bg-dark-800 w-screen h-screen">
+    <section class="fullscreen bg-dark-800 w-screen h-screen overflow-hidden">
       <div class="flex h-9/12">
         <div class="flex flex-col w-2/12">
-          <div class="VerticalClusters h-3/4 bg-dark-300 mb-1 flex justify-center items-center">
+          <div className="flex flex-row items-center p-3 items-start justify-start bg-dark-300">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#b9b9b9"
+            >
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path d="M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27-7.38 5.74zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16z" />
+            </svg>
+            <h1>
+              Clusters
+            </h1>
+          </div>
+          <div class="VerticalClusters h-3/4 bg-dark-300 mb-1 flex flex-col items-center justify-center">
             <VerticalClusters :cluster-array="clusterArray" :current-cluster-index="0" />
           </div>
           <div class="MLInfo flex flex-col p-2 h-1/4 bg-dark-300 mb-1">
@@ -128,11 +143,17 @@ export default {
         </div>
         <div class="MainImage flex flex-col h-full w-10/12 items-center justify-center">
           <img class="w-full h-11/12 object-contain p-2" :src="clusterArray[0][0].blob" alt="">
-          <div class="flex">
-            <p class="h-1/12 w-auto">
-              {{ clusterArray[0][0].LensModel }}
+          <div class="flex h-1/12 w-2/3 justify-center">
+            <p class="w-full">
+              ISO {{ clusterArray[0][0].ISO }}
             </p>
-            <p class="ml-20">
+            <p class="w-full">
+              f/{{ clusterArray[0][0].FNumber }}
+            </p>
+            <p class="w-full">
+              {{ clusterArray[0][0].FocalLength }}mm
+            </p>
+            <p class="w-full">
               {{ clusterArray[0][0].name }}
             </p>
           </div>
@@ -144,7 +165,7 @@ export default {
             Accepted
           </h1>
           <!-- <div v-for="image in acceptedImages" :key="image.blob" class="flex flex-col w-96 max-h-3/5 p-2  overflow-auto justify-center items-center"> -->
-          <div class="flex flex-col w-[20rem] h-full p-2  overflow-auto justify-center items-center">
+          <div class="flex flex-col w-80 h-full p-2  overflow-x-auto overflow-y-hidden  justify-center items-center">
             <img class="object-contain aspect-auto rounded mb-2 cursor-pointer border border-dark-300 hover:border-light-800 hover:border" :src="clusterArray[0][0].blob" alt="" srcset="">
             <AcceptBtn />
           </div>
@@ -153,7 +174,7 @@ export default {
           <h1 class="p-2">
             Rejected
           </h1>
-          <div class="flex flex-col w-[20rem] h-full p-2  overflow-auto justify-center items-center">
+          <div class="flex flex-col w-80 h-full p-2  overflow-x-auto overflow-y-hidden justify-center items-center">
             <img class="object-contain aspect-auto rounded mb-2 cursor-pointer border border-dark-300 hover:border-light-800 hover:border" :src="clusterArray[0][0].blob" alt="" srcset="">
             <AcceptBtn />
           </div>
@@ -161,42 +182,7 @@ export default {
       </div>
     </section>
   </div>
-
-  <!-- <div id="vertical cluster legacy">
-    <div class="flex flex-col items-start w-64 p-4">
-      <div className="flex flex-row items-center ">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#b9b9b9"
-        >
-          <path d="M0 0h24v24H0z" fill="none" />
-          <path d="M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27-7.38 5.74zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16z" />
-        </svg>
-        <h1>
-          Clusters
-        </h1>
-      </div>
-      <div class="flex flex-col justify-center items-center w-full my-6">
-        <div class="">
-          <img class="" :src="clusterArray[0][0].blob" alt="" srcset="">
-          <h1 class="">
-            Number of images in cluster
-          </h1>
-        </div>
-        <div><img :src="clusterArray[1][0].blob" alt="" srcset=""><h1>Number of images in cluster</h1></div>
-        <div><img :src="clusterArray[2][0].blob" alt="" srcset=""><h1>Number of images in cluster</h1></div>
-      </div>
-    </div>
-  </div> -->
 </template>
-
-<!-- // FNumber ('F/FNumber')
-      // ISO
-      // FocalLength ('mm')
-      // LensModel -->
 
 <style scoped>
 
