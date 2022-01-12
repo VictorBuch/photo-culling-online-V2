@@ -7,8 +7,9 @@ declare module 'vue' {
     AcceptBtn: typeof import('./components/AcceptBtn.vue')['default']
     CullingPage: typeof import('./components/CullingPage.vue')['default']
     ExpandClusterBtn: typeof import('./components/expandClusterBtn.vue')['default']
-    ImageUploadBtn: typeof import('./components/ImageUploadBtn.vue')['default']
+    ImageUploadArea: typeof import('./components/ImageUploadArea.vue')['default']
     README: typeof import('./components/README.md')['default']
+    UploadImagesPage: typeof import('./components/UploadImagesPage.vue')['default']
     VerticalClusters: typeof import('./components/VerticalClusters.vue')['default']
   }
 }

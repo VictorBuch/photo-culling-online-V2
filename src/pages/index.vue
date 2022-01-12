@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import UploadImagesPage from '../components/UploadImagesPage.vue'
 const router = useRouter()
 const { t } = useI18n()
 </script>
@@ -24,7 +25,7 @@ export default {
 <template>
   <section v-if="!areImagesLoaded">
     <div class=" w-screen h-screen flex my-auto mx-auto justify-center items-center overflow-hidden">
-      <ImageUploadBtn @loaded="imagesLoaded" />
+      <UploadImagesPage @loaded="imagesLoaded" />
     </div>
   </section>
   <CullingPage v-if="areImagesLoaded" :cluster-array="loadedClusterArray" />
