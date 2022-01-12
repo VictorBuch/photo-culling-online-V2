@@ -58,7 +58,6 @@ export default {
     </section>
   </div>
 
-  <!-- TODO: Fix vertical cluster styling -->
   <div>
     <section class="fullscreen bg-dark-800 w-screen h-screen overflow-hidden">
       <div class="flex h-9/12">
