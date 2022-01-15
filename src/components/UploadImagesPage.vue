@@ -1,5 +1,5 @@
 <!-- THIS component handles the upload, extraction of metadata,sorting and clustering the images and emits the cluster array to the parent. -->
-<script lang="ts">
+<script>
 import exifr from 'exifr'
 import ImageUploadArea from './ImageUploadArea.vue'
 export default {
@@ -20,13 +20,13 @@ export default {
   },
   methods: {
 
-    compareSecondColumn(a, b): Number {
+    compareSecondColumn(a, b) {
       if (a.time === b.time)
         return 0
       else
         return a.time < b.time ? -1 : 1
     },
-    sortByDateTimeOriginal(img2DArr): void {
+    sortByDateTimeOriginal(img2DArr) {
       img2DArr.sort(this.compareSecondColumn)
     },
     async getMetaData(file) {
@@ -102,7 +102,7 @@ export default {
   <ImageUploadArea v-if="!areImageUploaded" @drop.prevent="loadImages" @load-images="loadImages" />
 
   <div
-    v-if="areImageUploaded"
+    v-if="areImagesUploaded"
     class="container flex flex-col justify-center items-center"
   >
     <div class="loader" />
