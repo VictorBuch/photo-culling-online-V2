@@ -64,8 +64,6 @@ export default {
           alert(`Error, image ${this.imageFileArr[0][i].name} has no ${error}! This metadata is necessary for the program to work.`)
         }
       }
-      // console.warn('this.imageObjectArray')
-      // console.warn(this.imageObjectArray)
       this.sortByDateTimeOriginal(this.imageObjectArray)
       this.imageObjectArray.forEach((element, index) => {
         // if our PrevlasMod is not set set it to the first elements lastMod, we can do this cuz the array is sorted
@@ -88,6 +86,7 @@ export default {
           this.prevDateTimeOriginal = element.time
         }
       })
+      // TODO: sort the cluster arrays through the ML model
       this.clusterArray.shift()
       this.$emit('loaded', { array: this.clusterArray })
     },
