@@ -99,7 +99,7 @@ export default {
 </script>
 
 <template>
-  <ImageUploadArea v-if="!areImageUploaded" @drop.prevent="loadImages" @loadImages="loadImages" />
+  <ImageUploadArea v-if="!areImageUploaded" @drop.prevent="loadImages" @load-images="loadImages" />
 
   <div
     v-if="areImageUploaded"

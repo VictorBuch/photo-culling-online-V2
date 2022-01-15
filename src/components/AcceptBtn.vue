@@ -1,22 +1,12 @@
 <script>
 export default {
-  emits: ['accepted'],
-  data() {
-    return {
-      isAccepted: false,
-    }
-  },
-  methods: {
-    btnClicked() {
-      this.isAccepted = !this.isAccepted
-      this.$emit('accepted')
-    },
-  },
+  props: ['isAccepted'],
+
 }
 </script>
 
 <template>
-  <div @click="btnClicked">
+  <div>
     <svg
       v-if="isAccepted"
       id="Component_3_9"
