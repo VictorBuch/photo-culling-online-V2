@@ -8,10 +8,12 @@ export default {
   },
   data() {
     return {
-      totalNumSelectedImages: 100,
+      totalNumSelectedImages: this.clusterArray.reduce((count, row) => { return count + row.length }, 0),
       expandedClusters: [],
       acceptedImages: [],
-      selectedImage: '',
+      selectedImage: this.clusterArray[0][0].blob,
+      selectedClusterIndex: 0,
+      isFullscreen: false,
     }
   },
   computed: {
@@ -24,8 +26,49 @@ export default {
     isImageSelected() {
       return image => this.selectedImage === image
     },
+    selectedImageClusterIndex() {
+      return this.clusterArray[this.selectedClusterIndex].indexOf(this.clusterArray[this.selectedClusterIndex].find(image => image.blob === this.selectedImage))
+    },
+    selectedClustersRejectedImages() {
+      return this.clusterArray[this.selectedClusterIndex].filter(image => !this.acceptedImages.includes(image.blob))
+    },
+    selectedClustersAcceptedImages() {
+      return this.clusterArray[this.selectedClusterIndex].filter(image => this.acceptedImages.includes(image.blob))
+    },
+  },
+  mounted() {
+    window.addEventListener('keydown', this.handleKeypress)
+  },
+  unmounted() {
+    window.removeEventListener('keydown', this.handleKeypress)
   },
   methods: {
+    handleKeypress(e) {
+      console.warn(e.code)
+      switch (e.code) {
+        // case 'ArrowUp':
+        //   console.warn('up')
+        //   this.selectedClusterIndex -= 1
+        //   break
+        // case 'ArrowDown':
+        //   console.warn('down')
+        //   this.selectedClusterIndex += 1
+        //   break
+        // case 'ArrowLeft':
+        //   console.warn('left')
+        //   this.clusterArray[this.selectedClusterIndex].indexOf(this.clusterArray[this.selectedClusterIndex].find(image => image.blob === this.selectedImage) - 1)
+        //   break
+        // case 'ArrowRight':
+        //   console.warn('right')
+        //   this.clusterArray[this.selectedClusterIndex].indexOf(this.clusterArray[this.selectedClusterIndex].find(image => image.blob === this.selectedImage) + 1)
+        //   break
+        case 'KeyF':
+          this.isFullscreen = !this.isFullscreen
+          break
+        default:
+          break
+      }
+    },
     handleExpandCluster(cluster) {
       if (this.isClusterExpanded(cluster))
         this.expandedClusters.splice(this.expandedClusters.indexOf(cluster), 1)
@@ -40,8 +83,9 @@ export default {
       }
       this.acceptedImages.push(image)
     },
-    selectImage(image) {
+    selectImage(image, clusterIndex) {
       this.selectedImage = image
+      this.selectedClusterIndex = clusterIndex
     },
   },
 }
@@ -50,14 +94,14 @@ export default {
 
 <template>
   <!-- TODO: Make this a component -->
-  <div v-if="true" id="NetflixView">
+  <div v-if="!isFullscreen" id="NetflixView">
     <nav class="flex sticky top-0 py-2 pb-3 pl-4 items-start bg-dark-800">
-      Accepted pictures: {{ totalNumSelectedImages }} of {{ totalNumSelectedImages }}
+      Accepted pictures: {{ acceptedImages.length }} of {{ totalNumSelectedImages }}
     </nav>
     <section>
-      <div v-for="cluster in clusterArray" :key="cluster[0].blob" class="flex flex-row w-full h-full mb-1 bg-dark-500 overflow-auto">
-        <div class="flex flex-col p-3 pr-6 items-center ">
-          <h1 class="mb-10">
+      <div v-for="(cluster, index) in clusterArray" :key="cluster[0].blob" class="flex flex-row w-full h-full mb-1 bg-dark-500 overflow-auto">
+        <div class="flex flex-col p-3 pr-6 items-center w-auto ">
+          <h1 class="mb-10 w-full">
             0 out of 10
           </h1>
           <ExpandClusterBtn @expanded-cluster-change="handleExpandCluster(cluster[0].blob)" />
@@ -66,12 +110,12 @@ export default {
         <div :class="[isClusterExpanded(cluster[0].blob) ? 'grid-rows-4 grid-cols-4' : 'flex flex-row']" class=" w-full h-full">
           <div v-for="image in cluster" :key="image.blob" class="flex flex-col w-96 max-h-3/5 p-2  overflow-auto justify-center items-center">
             <img
-              :class="{'border-light-800 border': isImageSelected(image.blob)}"
-              class="object-fill w-full max-h-[25rem] rounded mb-2 cursor-pointer border border-dark-500"
+              :class="[isImageSelected(image.blob) ? 'border-light-800 border' : 'border border-dark-500']"
+              class="object-fill w-full max-h-[25rem] rounded mb-2 cursor-pointer"
               :src="image.blob"
               alt=""
               srcset=""
-              @click="selectImage(image.blob)"
+              @click="selectImage(image.blob, index)"
               @dblclick="handleAcceptedImageArrayChange(image.blob)"
             >
             <AcceptBtn :is-accepted="isImageAccepted(image.blob)" @click="handleAcceptedImageArrayChange(image.blob)" />
@@ -81,7 +125,7 @@ export default {
     </section>
   </div>
 
-  <section v-if="false" class="fullscreen bg-dark-800 w-screen h-screen overflow-hidden">
+  <section v-if="isFullscreen" class="fullscreen bg-dark-800 w-screen h-screen overflow-hidden">
     <div class="flex h-9/12">
       <div class="flex flex-col w-2/12">
         <div className="flex flex-row items-center p-3 items-start justify-start bg-dark-300">
@@ -100,7 +144,12 @@ export default {
           </h1>
         </div>
         <div class="VerticalClusters h-3/4 bg-dark-300 mb-1 flex flex-col items-center justify-center">
-          <VerticalClusters :cluster-array="clusterArray" :current-cluster-index="0" />
+          <VerticalClusters
+            :cluster-array="clusterArray"
+            :current-cluster-index="selectedClusterIndex"
+          />
+          <!-- @previous-cluster="selectedClusterIndex -= 1"
+            @next-cluster="selectedClusterIndex += 1" -->
         </div>
         <div class="MLInfo flex flex-col p-2 h-1/4 bg-dark-300 mb-1">
           <h1 class="flex mb-4">
@@ -151,31 +200,31 @@ export default {
               Confidence
             </p>
             <p class="text-right">
-              38%
+              {{ Math.round(Math.random(0,1)*100) }}%
             </p>
             <p class="text-left">
               Images accepted
             </p>
             <p class="text-right">
-              0 out of 100
+              {{ `${acceptedImages.length} out of ${clusterArray[selectedClusterIndex].length}` }}
             </p>
           </div>
         </div>
       </div>
       <div class="MainImage flex flex-col h-full w-10/12 items-center justify-center">
-        <img class="w-full h-11/12 object-contain p-2" :src="clusterArray[0][0].blob" alt="">
+        <img class="w-full h-11/12 object-contain p-2" :src="clusterArray[selectedClusterIndex][selectedImageClusterIndex].blob" alt="">
         <div class="flex h-1/12 w-2/3 justify-center">
           <p class="w-full">
-            ISO {{ clusterArray[0][0].ISO }}
+            ISO {{ clusterArray[selectedClusterIndex][selectedImageClusterIndex].ISO }}
           </p>
           <p class="w-full">
-            f/{{ clusterArray[0][0].FNumber }}
+            f/{{ clusterArray[selectedClusterIndex][selectedImageClusterIndex].FNumber }}
           </p>
           <p class="w-full">
-            {{ clusterArray[0][0].FocalLength }}mm
+            {{ clusterArray[selectedClusterIndex][selectedImageClusterIndex].FocalLength }}mm
           </p>
           <p class="w-full">
-            {{ clusterArray[0][0].name }}
+            {{ clusterArray[selectedClusterIndex][selectedImageClusterIndex].name }}
           </p>
         </div>
       </div>
@@ -185,19 +234,38 @@ export default {
         <h1 class="p-2">
           Accepted
         </h1>
-        <!-- <div v-for="image in acceptedImages" :key="image.blob" class="flex flex-col w-96 max-h-3/5 p-2  overflow-auto justify-center items-center"> -->
-        <div class="flex flex-col w-80 h-full p-2  overflow-x-auto overflow-y-hidden  justify-center items-center">
-          <img class="object-contain aspect-auto rounded mb-2 cursor-pointer border border-dark-300 hover:border-light-800 hover:border" :src="clusterArray[0][0].blob" alt="" srcset="">
-          <AcceptBtn :is-accepted="isImageAccepted(image.blob)" @click="handleAcceptedImageArrayChange(image.blob)" />
+        <div class="flex w-full h-full overflow-x-auto">
+          <div v-for="image in selectedClustersAcceptedImages" :key="image" class="flex flex-col w-80 h-full p-2  overflow-x-auto overflow-y-hidden flex-shrink-0 justify-center items-center">
+            <img
+              :class="[isImageSelected(image.blob) ? 'border-light-800 border' : 'border border-dark-500']"
+              class="object-contain aspect-auto rounded mb-2 cursor-pointer"
+              :src="image.blob"
+              alt=""
+              srcset=""
+              @click="selectImage(image.blob, selectedClusterIndex)"
+              @dblclick="handleAcceptedImageArrayChange(image.blob)"
+            >
+            <AcceptBtn :is-accepted="isImageAccepted(image.blob)" @click="handleAcceptedImageArrayChange(image.blob)" />
+          </div>
         </div>
       </div>
       <div class="RejectedPanel flex flex-col bg-dark-300 w-2/3 items-start justify-start">
         <h1 class="p-2">
           Rejected
         </h1>
-        <div class="flex flex-col w-80 h-full p-2  overflow-x-auto overflow-y-hidden justify-center items-center">
-          <img class="object-contain aspect-auto rounded mb-2 cursor-pointer border border-dark-300 hover:border-light-800 hover:border" :src="clusterArray[0][0].blob" alt="" srcset="">
-          <AcceptBtn :is-accepted="isImageAccepted(image.blob)" @click="handleAcceptedImageArrayChange(image.blob)" />
+        <div class="flex w-full h-full overflow-x-auto">
+          <div v-for="image in selectedClustersRejectedImages" :key="image" class="flex flex-col w-80 h-full p-2  overflow-x-auto overflow-y-hidden flex-shrink-0 justify-center items-center">
+            <img
+              :class="[isImageSelected(image.blob) ? 'border-light-800 border' : 'border border-dark-500']"
+              class="object-contain aspect-auto rounded mb-2 cursor-pointer"
+              :src="image.blob"
+              alt=""
+              srcset=""
+              @click="selectImage(image.blob, selectedClusterIndex)"
+              @dblclick="handleAcceptedImageArrayChange(image.blob)"
+            >
+            <AcceptBtn :is-accepted="isImageAccepted(image.blob)" @click="handleAcceptedImageArrayChange(image.blob)" />
+          </div>
         </div>
       </div>
     </div>

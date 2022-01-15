@@ -1,6 +1,7 @@
 <script>
 export default {
   props: ['clusterArray', 'currentClusterIndex'],
+  emits: ['previousCluster', 'nextCluster'],
   data() {
     return {
 
@@ -20,22 +21,27 @@ export default {
       return false
     },
   },
-  mounted() {
-
-  },
 }
 </script>
 
 <template>
   <div class="flex flex-col items-center justify-center">
-    <div v-if="existsPreviousCluster" class="flex flex-col w-3/4 h-full p-2  overflow-x-auto overflow-y-hidden justify-center items-center">
-      <img class="object-contain aspect-auto rounded mb-2 cursor-pointer border border-dark-300 hover:border-light-800 hover:border" :src="clusterArray[currentClusterIndex-1][0].blob" alt="" srcset="">
+    <div
+      v-if="existsPreviousCluster"
+      class="flex flex-col w-4/6 h-full overflow-hidden justify-center items-center"
+      @click="$emit('previousCluster')"
+    >
+      <img class="object-contain aspect-auto rounded m-4 cursor-pointer border border-dark-300 hover:border-light-800 hover:border" :src="clusterArray[currentClusterIndex-1][0].blob" alt="" srcset="">
     </div>
-    <div class="flex flex-col w-4/4 h-full p-2  overflow-x-auto overflow-y-hidden justify-center items-center">
-      <img class="object-contain aspect-auto rounded mb-2 cursor-pointer border border-dark-300 hover:border-light-800 hover:border" :src="clusterArray[currentClusterIndex][0].blob" alt="" srcset="">
+    <div class="flex flex-col w-5/6 h-full overflow-hidden justify-center items-center">
+      <img class="object-contain aspect-auto rounded m-4 cursor-pointer border border-dark-300 hover:border-light-800 hover:border" :src="clusterArray[currentClusterIndex][0].blob" alt="" srcset="">
     </div>
-    <div v-if="existsNextCluster" class="flex flex-col w-3/4 h-full p-2  overflow-x-auto overflow-y-hidden justify-center items-center">
-      <img class="object-contain aspect-auto rounded mb-2 cursor-pointer border border-dark-300 hover:border-light-800 hover:border" :src="clusterArray[currentClusterIndex+1][0].blob" alt="" srcset="">
+    <div
+      v-if="existsNextCluster"
+      class="flex flex-col w-4/6 h-full overflow-hidden justify-center items-center"
+      @click="$emit('nextCluster')"
+    >
+      <img class="object-contain aspect-auto rounded m-4 cursor-pointer border border-dark-300 hover:border-light-800 hover:border" :src="clusterArray[currentClusterIndex+1][0].blob" alt="" srcset="">
     </div>
 
     <!-- <img v-if="existsPreviousCluster" class="w-44 h-44 object-cover" :src="clusterArray[currentClusterIndex-1][0].blob" alt="" srcset="">

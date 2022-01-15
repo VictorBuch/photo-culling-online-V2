@@ -1,15 +1,13 @@
 <!-- THIS component handles the upload, extraction of metadata,sorting and clustering the images and emits the cluster array to the parent. -->
 <script>
 import exifr from 'exifr'
-import ImageUploadArea from './ImageUploadArea.vue'
 export default {
-  components: { ImageUploadArea },
   emits: ['loaded'],
   data() {
     return {
       imageFileArr: [],
       imageObjectArray: [],
-      areImageUploaded: false,
+      areImagesUploaded: false,
       clusterArray: [[]],
       prevClusterIndex: 0,
       clusterNum: 0,
@@ -36,7 +34,7 @@ export default {
       return { DateTimeOriginal, FNumber, ISO, FocalLength, LensModel }
     },
     async loadImages(e) {
-      this.areImageUploaded = true
+      this.areImagesUploaded = true
       if (e.type === 'drop') this.imageFileArr.push(e.dataTransfer.files)
       else this.imageFileArr.push(e.target.files) // gets a file object with all files
       // Loop trough all the local images and creat blob elements for later use
@@ -99,7 +97,7 @@ export default {
 </script>
 
 <template>
-  <ImageUploadArea v-if="!areImageUploaded" @drop.prevent="loadImages" @load-images="loadImages" />
+  <ImageUploadArea v-if="!areImagesUploaded" @drop.prevent="loadImages" @load-images="loadImages" />
 
   <div
     v-if="areImagesUploaded"
