@@ -11,7 +11,7 @@ export default {
       clusterArray: [[]],
       prevClusterIndex: 0,
       clusterNum: 0,
-      interval: 2800,
+      interval: 280000,
       prevDateTimeOriginal: null,
 
     }

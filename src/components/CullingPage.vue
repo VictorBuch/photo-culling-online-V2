@@ -83,16 +83,19 @@ export default {
       Accepted pictures: {{ acceptedImages.length }} of {{ totalNumSelectedImages }}
     </nav>
     <section>
-      <div v-for="(cluster, index) in clusterArray" :key="cluster[0].blob" class="flex flex-row w-full h-full mb-1 bg-dark-500 overflow-auto">
-        <div class="flex flex-col p-3 pr-6 items-center w-auto ">
+      <div v-for="(cluster, index) in clusterArray" :key="cluster[0].blob" class="flex flex-row w-full h-full mb-1 bg-dark-500 ">
+        <div class="flex flex-col p-3 pr-6 items-center w-max w-auto whitespace-nowrap">
           <h1 class="mb-10 w-full">
-            {{ `${clusterArray[selectedClusterIndex].length} out of ${clusterArray[selectedClusterIndex].length}` }}
+            {{ `${cluster.length} out of ${cluster.length}` }}
           </h1>
           <ExpandClusterBtn @expanded-cluster-change="handleExpandCluster(cluster[0].blob)" />
         </div>
         <!-- TODO: Make actual layout work when expanded -->
-        <div :class="[isClusterExpanded(cluster[0].blob) ? 'grid-rows-4 grid-cols-4' : 'flex flex-row']" class=" w-full h-full">
-          <div v-for="image in cluster" :key="image.blob" class="flex flex-col w-96 max-h-3/5 p-2  overflow-auto justify-center items-center">
+        <div
+          :class="[isClusterExpanded(cluster[0].blob) ? 'grid grid-flow-col grid-cols-5 grid-rows-6 auto-rows-fr overflow-auto' : 'grid grid-rows-1 auto-cols-auto grid-flow-col overflow-auto']"
+          class=" h-full items-center "
+        >
+          <div v-for="image in cluster" :key="image.blob" class="flex flex-col w-96 max-h-3/5 p-2 justify-center items-center">
             <img
               :class="[isImageSelected(image.blob) ? 'border-light-800 border' : 'border border-dark-500']"
               class="object-fill w-full max-h-[25rem] rounded mb-2 cursor-pointer"
@@ -213,7 +216,7 @@ export default {
         </div>
       </div>
     </div>
-    <div class="flex w-full h-3/12">
+    <div class="flex w-screen h-3/12">
       <div class="AcceptedPanel flex flex-col bg-dark-300 w-1/3 items-start justify-start mr-1">
         <h1 class="p-2">
           Accepted
@@ -233,7 +236,7 @@ export default {
           </div>
         </div>
       </div>
-      <div class="RejectedPanel flex flex-col bg-dark-300 w-2/3 items-start justify-start">
+      <div class="RejectedPanel flex flex-col bg-dark-300 w-auto items-start justify-start">
         <h1 class="p-2">
           Rejected
         </h1>
