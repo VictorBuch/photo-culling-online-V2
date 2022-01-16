@@ -46,22 +46,6 @@ export default {
     handleKeypress(e) {
       console.warn(e.code)
       switch (e.code) {
-        // case 'ArrowUp':
-        //   console.warn('up')
-        //   this.selectedClusterIndex -= 1
-        //   break
-        // case 'ArrowDown':
-        //   console.warn('down')
-        //   this.selectedClusterIndex += 1
-        //   break
-        // case 'ArrowLeft':
-        //   console.warn('left')
-        //   this.clusterArray[this.selectedClusterIndex].indexOf(this.clusterArray[this.selectedClusterIndex].find(image => image.blob === this.selectedImage) - 1)
-        //   break
-        // case 'ArrowRight':
-        //   console.warn('right')
-        //   this.clusterArray[this.selectedClusterIndex].indexOf(this.clusterArray[this.selectedClusterIndex].find(image => image.blob === this.selectedImage) + 1)
-        //   break
         case 'KeyF':
           this.isFullscreen = !this.isFullscreen
           break
@@ -102,7 +86,7 @@ export default {
       <div v-for="(cluster, index) in clusterArray" :key="cluster[0].blob" class="flex flex-row w-full h-full mb-1 bg-dark-500 overflow-auto">
         <div class="flex flex-col p-3 pr-6 items-center w-auto ">
           <h1 class="mb-10 w-full">
-            0 out of 10
+            {{ `${clusterArray[selectedClusterIndex].length} out of ${clusterArray[selectedClusterIndex].length}` }}
           </h1>
           <ExpandClusterBtn @expanded-cluster-change="handleExpandCluster(cluster[0].blob)" />
         </div>
