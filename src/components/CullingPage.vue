@@ -91,7 +91,7 @@ export default {
           <ExpandClusterBtn @expanded-cluster-change="handleExpandCluster(cluster[0].blob)" />
         </div>
         <!-- TODO: Make actual layout work when expanded -->
-        <div :class="[isClusterExpanded(cluster[0].blob) ? 'grid-rows-4 grid-cols-4' : 'flex flex-row']" class=" w-full h-full">
+        <div :class="[isClusterExpanded(cluster[0].blob) ? 'columns-sm' : 'flex flex-row']" class=" w-full h-full">
           <div v-for="image in cluster" :key="image.blob" class="flex flex-col w-96 max-h-3/5 p-2  overflow-auto justify-center items-center">
             <img
               :class="[isImageSelected(image.blob) ? 'border-light-800 border' : 'border border-dark-500']"

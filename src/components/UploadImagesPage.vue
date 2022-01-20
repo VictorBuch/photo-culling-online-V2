@@ -87,6 +87,8 @@ export default {
         }
       })
       // TODO: sort the cluster arrays through the ML model
+      // TODO: convert model correctly
+      // const model = await tf.loadLayersModel('https://gciaa.s3.eu-central-1.amazonaws.com/Modelsjs/model.json')
       this.clusterArray.shift()
       this.$emit('loaded', { array: this.clusterArray })
     },
