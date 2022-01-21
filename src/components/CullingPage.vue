@@ -90,14 +90,11 @@ export default {
           </h1>
           <ExpandClusterBtn @expanded-cluster-change="handleExpandCluster(cluster[0].blob)" />
         </div>
-        <!-- TODO: Make actual layout work when expanded -->
         <div
-          :class="[isClusterExpanded(cluster[0].blob) ? 'columns-sm' : 'grid grid-rows-1 auto-cols-auto grid-flow-col overflow-auto']"
-          class=" h-full items-center "
+          :class="[isClusterExpanded(cluster[0].blob) ? 'columns-sm' : 'grid grid-rows-1 auto-cols-auto grid-flow-col overflow-auto snap snap-mandatory snap-x']"
+          class=" w-full h-full items-center "
         >
-          <div v-for="image in cluster" :key="image.blob" class="flex flex-col w-96 max-h-3/5 p-2 justify-center items-center">
-
-
+          <div v-for="image in cluster" :key="image.blob" class="flex flex-col w-96 max-h-3/5 p-2 justify-center items-center snap-start">
             <img
               :class="[isImageSelected(image.blob) ? 'border-light-800 border' : 'border border-dark-500']"
               class="object-fill w-full max-h-[25rem] rounded mb-2 cursor-pointer"
@@ -115,7 +112,7 @@ export default {
   </div>
 
   <section v-if="isFullscreen" class="fullscreen bg-dark-800 w-screen h-screen overflow-hidden">
-    <div class="flex h-9/12">
+    <div class="flex h-8/12">
       <div class="flex flex-col w-2/12">
         <div className="flex flex-row items-center p-3 items-start justify-start bg-dark-300">
           <svg
@@ -218,13 +215,13 @@ export default {
         </div>
       </div>
     </div>
-    <div class="flex w-screen h-3/12">
+    <div class="flex w-screen h-4/12">
       <div class="AcceptedPanel flex flex-col bg-dark-300 w-1/3 items-start justify-start mr-1">
         <h1 class="p-2">
           Accepted
         </h1>
-        <div class="flex w-full h-full overflow-x-auto">
-          <div v-for="image in selectedClustersAcceptedImages" :key="image" class="flex flex-col w-80 h-full p-2  overflow-x-auto overflow-y-hidden flex-shrink-0 justify-center items-center">
+        <div class="flex w-full h-full overflow-x-auto snap snap-mandatory snap-x">
+          <div v-for="image in selectedClustersAcceptedImages" :key="image" class="flex flex-col w-80 h-full p-2  overflow-x-auto overflow-y-hidden flex-shrink-0 justify-center items-center snap-start">
             <img
               :class="[isImageSelected(image.blob) ? 'border-light-800 border' : 'border border-dark-500']"
               class="object-contain aspect-auto rounded mb-2 cursor-pointer"
@@ -238,12 +235,12 @@ export default {
           </div>
         </div>
       </div>
-      <div class="RejectedPanel flex flex-col bg-dark-300 w-auto items-start justify-start">
+      <div class="RejectedPanel flex flex-col bg-dark-300 w-screen items-start justify-start ">
         <h1 class="p-2">
           Rejected
         </h1>
-        <div class="flex w-full h-full overflow-x-auto">
-          <div v-for="image in selectedClustersRejectedImages" :key="image" class="flex flex-col w-80 h-full p-2  overflow-x-auto overflow-y-hidden flex-shrink-0 justify-center items-center">
+        <div class="flex w-full h-full overflow-x-auto snap snap-mandatory snap-x">
+          <div v-for="image in selectedClustersRejectedImages" :key="image" class="flex flex-col w-80 h-full p-2  overflow-x-auto overflow-y-hidden flex-shrink-0 justify-center items-center snap-start">
             <img
               :class="[isImageSelected(image.blob) ? 'border-light-800 border' : 'border border-dark-500']"
               class="object-contain aspect-auto rounded mb-2 cursor-pointer"
