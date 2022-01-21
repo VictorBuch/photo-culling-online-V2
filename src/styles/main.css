@@ -9,14 +9,15 @@
 }
 html {
   --scrollbarBG: #181818;
-  --thumbBG: #181818;
+  --thumbBG: #757576;
 }
 body::-webkit-scrollbar {
   width: 11px;
 }
 body {
+
   scrollbar-width: thin;
-  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+  scrollbar-color: auto;
 }
 body::-webkit-scrollbar-track {
   background: var(--scrollbarBG);
