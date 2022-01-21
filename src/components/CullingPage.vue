@@ -92,10 +92,12 @@ export default {
         </div>
         <!-- TODO: Make actual layout work when expanded -->
         <div
-          :class="[isClusterExpanded(cluster[0].blob) ? 'grid grid-flow-col grid-cols-5 grid-rows-6 auto-rows-fr overflow-auto' : 'grid grid-rows-1 auto-cols-auto grid-flow-col overflow-auto']"
+          :class="[isClusterExpanded(cluster[0].blob) ? 'columns-sm' : 'grid grid-rows-1 auto-cols-auto grid-flow-col overflow-auto']"
           class=" h-full items-center "
         >
           <div v-for="image in cluster" :key="image.blob" class="flex flex-col w-96 max-h-3/5 p-2 justify-center items-center">
+
+
             <img
               :class="[isImageSelected(image.blob) ? 'border-light-800 border' : 'border border-dark-500']"
               class="object-fill w-full max-h-[25rem] rounded mb-2 cursor-pointer"
