@@ -15,7 +15,7 @@ export default {
 
 <template>
   <div
-    class="dropzone w-96 h-52 flex flex-col items-center justify-evenly border-1 border-red-800 border-dashed transition-all duration-300"
+    class="dropzone w-96 h-52 flex flex-col items-center justify-evenly border-1 border-red-700 border-dashed transition-all duration-300"
     :class="{'bg-red-800 ': active}"
     @dragenter.prevent="toggleActive"
     @dragleave.prevent="toggleActive"
@@ -24,7 +24,7 @@ export default {
   >
     <span>Drag and Drop File</span>
     <span>OR</span>
-    <label :class="[active ? 'bg-dark-800 text-red-800' : 'bg-red-800']" class=" rounded-lg p-3 cursor-pointer w-auto">
+    <label :class="[active ? 'bg-dark-800 text-red-700' : 'bg-red-700']" class=" rounded-lg p-3 cursor-pointer w-auto">
       Upload Images
       <input
         id="inputFile"

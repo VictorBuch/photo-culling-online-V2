@@ -7,8 +7,9 @@ export default {
     return {
       imageFileArr: [],
       imageObjectArray: [],
-      areImagesUploaded: false,
       clusterArray: [],
+      unusableImages: [],
+      imageUploadStage: 'uploadArea',
       prevClusterIndex: 0,
       interval: 2800,
       prevDateTimeOriginal: null,
@@ -16,7 +17,6 @@ export default {
     }
   },
   methods: {
-
     compareSecondColumn(a, b) {
       if (a.time === b.time)
         return 0
@@ -33,7 +33,7 @@ export default {
       return { DateTimeOriginal, FNumber, ISO, FocalLength, LensModel }
     },
     async loadImages(e) {
-      this.areImagesUploaded = true
+      this.imageUploadStage = 'processing'
       if (e.type === 'drop') this.imageFileArr.push(e.dataTransfer.files)
       else this.imageFileArr.push(e.target.files) // gets a file object with all files
       // Loop trough all the local images and creat blob elements for later use
@@ -58,9 +58,8 @@ export default {
           }
         }
         catch (error) {
-          // TODO: make a vissible way to see which images failed to have metadata retreived
-          // eslint-disable-next-line no-alert
-          alert(`Error, image ${this.imageFileArr[0][i].name} has no ${error}! This metadata is necessary for the program to work.`)
+          this.unusableImages.push({ name: this.imageFileArr[0][i].name, blob: URL.createObjectURL(this.imageFileArr[0][i]) })
+          console.warn(error)
         }
       }
       this.sortByDateTimeOriginal(this.imageObjectArray)
@@ -88,8 +87,7 @@ export default {
           this.clusterArray.push(this.imageObjectArray.slice(this.prevClusterIndex, index + 1))
       })
       // TODO: sort the cluster arrays through the ML model
-      console.warn(this.clusterArray)
-      this.$emit('loaded', { array: this.clusterArray })
+      this.imageUploadStage = 'waitingForAccept'
     },
   },
 }
@@ -97,17 +95,39 @@ export default {
 </script>
 
 <template>
-  <ImageUploadArea v-if="!areImagesUploaded" @drop.prevent="loadImages" @load-images="loadImages" />
+  <div class=" w-screen h-screen flex my-auto mx-auto justify-center items-center overflow-hidden">
+    <ImageUploadArea v-if="imageUploadStage === 'uploadArea'" @drop.prevent="loadImages" @load-images="loadImages" />
 
-  <div
-    v-if="areImagesUploaded"
-    class="container flex flex-col justify-center items-center"
-  >
-    <div class="loader" />
+    <div
+      v-if="imageUploadStage === 'processing'"
+      class="container flex flex-col justify-center items-center"
+    >
+      <div class="loader" />
 
-    <h3 class="block">
-      Please wait, the robot is thinking &#129302;
-    </h3>
+      <h3 class="block">
+        Please wait, the robot is thinking &#129302;
+      </h3>
+    </div>
+
+    <div v-if="imageUploadStage === 'waitingForAccept'" class="flex flex-col items-center justify-center w-screen h-screen overflow-y-auto overflow-x-hidden">
+      <h1 class="text-5xl mb-4">
+        Some Images Couldn't Load!
+      </h1>
+      <h3 class="mb-10">
+        (This is likely due to missing metadata. Make sure your photos contain the DateTimeOriginal tag)
+      </h3>
+      <button class="w-auto h-auto bg-red-700 p-3 mb-20 rounded-lg" @click.prevent="$emit('loaded', { array: clusterArray })">
+        Continue Anyways
+      </button>
+      <div class="h-auto w-max grid grid-cols-2 items-end justify-start">
+        <div v-for="image in unusableImages" :key="image.blob" class="flex flex-col items-center mb-6">
+          <img class="h-36 ascpect-ratio opacity-50" :src="image.blob" alt="">
+          <p class="w-xs truncate">
+            {{ image.name }}
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

@@ -11,6 +11,7 @@ declare module 'vue' {
     README: typeof import('./components/README.md')['default']
     UploadImagesPage: typeof import('./components/UploadImagesPage.vue')['default']
     VerticalClusters: typeof import('./components/VerticalClusters.vue')['default']
+    WelcomePage: typeof import('./components/WelcomePage.vue')['default']
   }
 }
 

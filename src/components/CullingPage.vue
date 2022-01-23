@@ -44,7 +44,6 @@ export default {
   },
   methods: {
     handleKeypress(e) {
-      console.warn(e.code)
       switch (e.code) {
         case 'KeyF':
           this.isFullscreen = !this.isFullscreen
@@ -91,8 +90,8 @@ export default {
           <ExpandClusterBtn @expanded-cluster-change="handleExpandCluster(cluster[0].blob)" />
         </div>
         <div
-          :class="[isClusterExpanded(cluster[0].blob) ? 'columns-sm' : 'grid grid-rows-1 auto-cols-auto grid-flow-col overflow-auto snap snap-mandatory snap-x']"
-          class=" w-full h-full items-center "
+          :class="[isClusterExpanded(cluster[0].blob) ? 'columns-sm w-full' : 'grid grid-rows-1 auto-cols-auto grid-flow-col overflow-auto snap snap-mandatory snap-x']"
+          class=" h-full items-center "
         >
           <div v-for="image in cluster" :key="image.blob" class="flex flex-col w-96 max-h-3/5 p-2 justify-center items-center snap-start">
             <img
