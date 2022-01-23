@@ -8,10 +8,9 @@ export default {
       imageFileArr: [],
       imageObjectArray: [],
       areImagesUploaded: false,
-      clusterArray: [[]],
+      clusterArray: [],
       prevClusterIndex: 0,
-      clusterNum: 0,
-      interval: 280000,
+      interval: 2800,
       prevDateTimeOriginal: null,
 
     }
@@ -69,27 +68,27 @@ export default {
         // if our PrevlasMod is not set set it to the first elements lastMod, we can do this cuz the array is sorted
         if (this.prevDateTimeOriginal === null)
           this.prevDateTimeOriginal = element.time
-        // check if the image creation date is within the interval compared to the previous image
-        if (Math.abs(element.time - this.prevDateTimeOriginal) > this.interval
-                    || index === this.imageObjectArray.length - 1) {
-          // the image element is not within the threshold so make a new cluster
-          // TODO: Fix last image being appended to the next to last cluster
-          if (index === this.imageObjectArray.length - 1)
-            this.clusterArray.push(this.imageObjectArray.slice(this.prevClusterIndex, index + 1))
-          else
-            this.clusterArray.push(this.imageObjectArray.slice(this.prevClusterIndex, index))
+
+        // Checks if current image is within timed threshold if not -> create cluster of previous images
+        if (Math.abs(element.time - this.prevDateTimeOriginal) > this.interval) {
+          this.clusterArray.push(this.imageObjectArray.slice(this.prevClusterIndex, index))
           this.prevClusterIndex = index
-          this.clusterNum++
           this.prevDateTimeOriginal = element.time
         }
         else {
           this.prevDateTimeOriginal = element.time
         }
+        // if the last image is not withing the same cluster, push the previous cluster and make a last cluster for the last image
+        if (Math.abs(element.time - this.prevDateTimeOriginal) > this.interval && index === this.imageObjectArray.length - 1) {
+          this.clusterArray.push(this.imageObjectArray.slice(this.prevClusterIndex, index))
+          this.clusterArray.push(this.imageObjectArray.slice(index))
+        }
+        // The image is the last and a part of the cluster so push that
+        if (index === this.imageObjectArray.length - 1)
+          this.clusterArray.push(this.imageObjectArray.slice(this.prevClusterIndex, index + 1))
       })
       // TODO: sort the cluster arrays through the ML model
-      // TODO: convert model correctly
-      // const model = await tf.loadLayersModel('https://gciaa.s3.eu-central-1.amazonaws.com/Modelsjs/model.json')
-      this.clusterArray.shift()
+      console.warn(this.clusterArray)
       this.$emit('loaded', { array: this.clusterArray })
     },
   },
