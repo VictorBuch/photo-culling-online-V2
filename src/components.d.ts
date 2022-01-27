@@ -5,6 +5,8 @@
 declare module 'vue' {
   export interface GlobalComponents {
     AcceptBtn: typeof import('./components/AcceptBtn.vue')['default']
+    CarbonDicomOverlay: typeof import('~icons/carbon/dicom-overlay')['default']
+    CarbonWarning: typeof import('~icons/carbon/warning')['default']
     CullingPage: typeof import('./components/CullingPage.vue')['default']
     ExpandClusterBtn: typeof import('./components/expandClusterBtn.vue')['default']
     ImageCard: typeof import('./components/ImageCard.vue')['default']

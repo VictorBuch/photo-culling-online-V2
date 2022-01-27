@@ -1,0 +1,1 @@
+import{_ as t}from"./app.b0403193.js";import{l as o,o as r,b as a,g as c}from"./vendor.73441bcd.js";const n={},s={class:"px-4 py-10 text-center text-gray-700 dark:text-gray-200"};function _(p,m){const e=o("router-view");return r(),a("main",s,[c(e)])}var f=t(n,[["render",_]]);export{f as default};
