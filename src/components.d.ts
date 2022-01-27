@@ -4,9 +4,17 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AcceptBtn: typeof import('./components/AcceptBtn.vue')['default']
+    CarbonDicomOverlay: typeof import('~icons/carbon/dicom-overlay')['default']
+    CarbonWarning: typeof import('~icons/carbon/warning')['default']
     CullingPage: typeof import('./components/CullingPage.vue')['default']
-    ImageUploadBtn: typeof import('./components/ImageUploadBtn.vue')['default']
+    ExpandClusterBtn: typeof import('./components/expandClusterBtn.vue')['default']
+    ImageCard: typeof import('./components/ImageCard.vue')['default']
+    ImageUploadArea: typeof import('./components/ImageUploadArea.vue')['default']
     README: typeof import('./components/README.md')['default']
+    UploadImagesPage: typeof import('./components/UploadImagesPage.vue')['default']
+    VerticalClusters: typeof import('./components/VerticalClusters.vue')['default']
+    WelcomePage: typeof import('./components/WelcomePage.vue')['default']
   }
 }
 

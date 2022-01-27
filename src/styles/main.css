@@ -7,6 +7,27 @@
     -ms-user-select: none; /* IE 10+ */
     user-select: none;
 }
+html {
+  --scrollbarBG: #181818;
+  --thumbBG: #757576;
+}
+body::-webkit-scrollbar {
+  width: 11px;
+}
+body {
+
+  scrollbar-width: thin;
+  scrollbar-color: auto;
+}
+body::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG) ;
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+
 
 html,
 body,
@@ -17,7 +38,7 @@ body,
 }
 
 html.dark {
-  background: #282828;
+  background: #181818;
 }
 
 #nprogress {
