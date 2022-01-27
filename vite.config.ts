@@ -18,7 +18,7 @@ import LinkAttributes from 'markdown-it-link-attributes'
 const markdownWrapperClasses = 'prose prose-sm m-auto text-left'
 
 export default defineConfig({
-  base: '/photo-culling-online-V2/',
+  base: '/photo-culling-online-V2.',
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,

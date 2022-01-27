@@ -41,141 +41,141 @@
   "src/main.ts": [],
   "index.html": [],
   "node_modules/@intlify/shared/dist/shared.esm-bundler.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/@intlify/message-resolver/dist/message-resolver.esm-bundler.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/@intlify/runtime/dist/runtime.esm-bundler.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/@intlify/message-compiler/dist/message-compiler.esm-bundler.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/@intlify/devtools-if/dist/devtools-if.esm-bundler.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/@intlify/core-base/dist/core-base.esm-bundler.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/shared/dist/shared.esm-bundler.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/vue/dist/vue.runtime.esm-bundler.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/devtools-api/lib/esm/env.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/devtools-api/lib/esm/const.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/devtools-api/lib/esm/proxy.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/devtools-api/lib/esm/api/api.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/devtools-api/lib/esm/api/app.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/devtools-api/lib/esm/api/component.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/devtools-api/lib/esm/api/context.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/devtools-api/lib/esm/api/hooks.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/devtools-api/lib/esm/api/util.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/devtools-api/lib/esm/api/index.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/devtools-api/lib/esm/plugin.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/devtools-api/lib/esm/index.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/@intlify/vue-devtools/dist/vue-devtools.esm-bundler.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/vue-i18n/dist/vue-i18n.runtime.esm-bundler.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "\u0000commonjsHelpers.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "\u0000/home/victorbuch/Documents/GitHub/photo-culling-online-V2/node_modules/nprogress/nprogress.js?commonjs-module": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/nprogress/nprogress.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/vue-demi/lib/index.mjs": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/pinia/dist/pinia.esm-browser.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/vue-router/dist/vue-router.esm-bundler.js": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/@vueuse/head/dist/index.mjs": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/vite-ssg/dist/chunks/state.mjs": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/vite-ssg/dist/chunks/ClientOnly.mjs": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/vite-ssg/dist/index.mjs": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/exifr/dist/full.esm.mjs": [
-    "/photo-culling-online-V2/assets/vendor.73441bcd.js"
+    "/photo-culling-online-V2./assets/vendor.73441bcd.js"
   ],
   "node_modules/workbox-window/build/workbox-window.prod.es5.mjs": [
-    "/photo-culling-online-V2/assets/virtual_pwa-register.c3dce1de.js"
+    "/photo-culling-online-V2./assets/virtual_pwa-register.069a6f66.js"
   ],
   "../../../../../@vite-plugin-pwa/virtual:pwa-register": [
-    "/photo-culling-online-V2/assets/virtual_pwa-register.c3dce1de.js"
+    "/photo-culling-online-V2./assets/virtual_pwa-register.069a6f66.js"
   ],
   "~icons/carbon/dicom-overlay": [
-    "/photo-culling-online-V2/assets/about.109cd8c1.js"
+    "/photo-culling-online-V2./assets/about.109cd8c1.js"
   ],
   "src/pages/about.md": [
-    "/photo-culling-online-V2/assets/about.109cd8c1.js"
+    "/photo-culling-online-V2./assets/about.109cd8c1.js"
   ],
   "src/pages/README.md": [
-    "/photo-culling-online-V2/assets/README.6bebb3f9.js"
+    "/photo-culling-online-V2./assets/README.6bebb3f9.js"
   ],
   "src/pages/[...all].vue?vue&type=route&index=0&lang.yaml": [
-    "/photo-culling-online-V2/assets/_...all_.c74887b8.js"
+    "/photo-culling-online-V2./assets/_...all_.c74887b8.js"
   ],
   "src/pages/[...all].vue": [
-    "/photo-culling-online-V2/assets/_...all_.c74887b8.js"
+    "/photo-culling-online-V2./assets/_...all_.c74887b8.js"
   ],
   "~icons/carbon/warning": [
-    "/photo-culling-online-V2/assets/404.52a969ed.js"
+    "/photo-culling-online-V2./assets/404.52a969ed.js"
   ],
   "src/layouts/404.vue": [
-    "/photo-culling-online-V2/assets/404.52a969ed.js"
+    "/photo-culling-online-V2./assets/404.52a969ed.js"
   ],
   "src/layouts/home.vue": [
-    "/photo-culling-online-V2/assets/home.182d205b.js"
+    "/photo-culling-online-V2./assets/home.a0c438e1.js"
   ]
 }
