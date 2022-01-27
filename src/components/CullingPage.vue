@@ -224,7 +224,7 @@ export default {
           Accepted
         </h1>
         <div class="flex w-full h-full overflow-x-auto snap snap-mandatory snap-x">
-          <div v-for="image in selectedClustersAcceptedImages" :key="image" class="flex flex-col w-80 h-full p-2  overflow-x-auto overflow-y-hidden flex-shrink-0 justify-center items-center snap-start">
+          <div v-for="(image, index) in selectedClustersAcceptedImages" :key="image" class="flex flex-col w-80 h-full p-2  overflow-x-auto overflow-y-hidden flex-shrink-0 justify-center items-center snap-start">
             <ImageCard
               :image="image.blob" :index="index" :is-image-selected="isImageSelected(image.blob)" :is-image-accepted="isImageAccepted(image.blob)"
               @select-image="selectImage(image.blob, selectedClusterIndex)" @handle-accepted-image-array-change="handleAcceptedImageArrayChange(image.blob)"
@@ -237,7 +237,7 @@ export default {
           Rejected
         </h1>
         <div class="flex w-full h-full overflow-x-auto snap snap-mandatory snap-x">
-          <div v-for="image in selectedClustersRejectedImages" :key="image" class="flex flex-col w-80 h-full p-2  overflow-x-auto overflow-y-hidden flex-shrink-0 justify-center items-center snap-start">
+          <div v-for="(image, index) in selectedClustersRejectedImages" :key="image" class="flex flex-col w-80 h-full p-2  overflow-x-auto overflow-y-hidden flex-shrink-0 justify-center items-center snap-start">
             <ImageCard
               :image="image.blob" :index="index" :is-image-selected="isImageSelected(image.blob)" :is-image-accepted="isImageAccepted(image.blob)"
               @select-image="selectImage(image.blob, selectedClusterIndex)" @handle-accepted-image-array-change="handleAcceptedImageArrayChange(image.blob)"
