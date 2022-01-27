@@ -35,8 +35,15 @@ export default {
     selectedClustersAcceptedImages() {
       return this.clusterArray[this.selectedClusterIndex].filter(image => this.acceptedImages.includes(image.blob))
     },
+    clustersAcceptedImages() {
+      return index => this.clusterArray[index].filter(image => this.acceptedImages.includes(image.blob)).length
+    },
   },
   mounted() {
+    // TODO: remove when ML algo is working
+    this.clusterArray.forEach((element) => {
+      this.acceptedImages.push(element[0].blob)
+    })
     window.addEventListener('keydown', this.handleKeypress)
   },
   unmounted() {
@@ -70,13 +77,16 @@ export default {
       this.selectedImage = image
       this.selectedClusterIndex = clusterIndex
     },
+    changeSelectedClusterIndex(i) {
+      this.selectedClusterIndex += i
+      this.selectedImage = this.clusterArray[this.selectedClusterIndex][0].blob
+    },
   },
 }
 
 </script>
 
 <template>
-  <!-- TODO: Make this a component -->
   <div v-if="!isFullscreen" id="NetflixView">
     <nav class="flex sticky top-0 py-2 pb-3 pl-4 items-start bg-dark-800">
       Accepted pictures: {{ acceptedImages.length }} of {{ totalNumSelectedImages }}
@@ -85,7 +95,7 @@ export default {
       <div v-for="(cluster, index) in clusterArray" :key="cluster[0].blob" class="flex flex-row w-full h-full mb-1 bg-dark-500 ">
         <div class="flex flex-col p-3 pr-6 items-center w-max w-auto whitespace-nowrap">
           <h1 class="mb-10 w-full">
-            {{ `${cluster.length} out of ${cluster.length}` }}
+            {{ `${clustersAcceptedImages(index)} out of ${cluster.length}` }}
           </h1>
           <ExpandClusterBtn @expanded-cluster-change="handleExpandCluster(cluster[0].blob)" />
         </div>
@@ -94,16 +104,10 @@ export default {
           class=" h-full items-center "
         >
           <div v-for="image in cluster" :key="image.blob" class="flex flex-col w-96 max-h-3/5 p-2 justify-center items-center snap-start">
-            <img
-              :class="[isImageSelected(image.blob) ? 'border-light-800 border' : 'border border-dark-500']"
-              class="object-fill w-full max-h-[25rem] rounded mb-2 cursor-pointer"
-              :src="image.blob"
-              alt=""
-              srcset=""
-              @click="selectImage(image.blob, index)"
-              @dblclick="handleAcceptedImageArrayChange(image.blob)"
-            >
-            <AcceptBtn :is-accepted="isImageAccepted(image.blob)" @click="handleAcceptedImageArrayChange(image.blob)" />
+            <ImageCard
+              :image="image.blob" :index="index" :is-image-selected="isImageSelected(image.blob)" :is-image-accepted="isImageAccepted(image.blob)"
+              @select-image="selectImage(image.blob, index)" @handle-accepted-image-array-change="handleAcceptedImageArrayChange(image.blob)"
+            />
           </div>
         </div>
       </div>
@@ -132,9 +136,9 @@ export default {
           <VerticalClusters
             :cluster-array="clusterArray"
             :current-cluster-index="selectedClusterIndex"
+            @previous-cluster="changeSelectedClusterIndex(-1)"
+            @next-cluster="changeSelectedClusterIndex(1)"
           />
-          <!-- @previous-cluster="selectedClusterIndex -= 1"
-            @next-cluster="selectedClusterIndex += 1" -->
         </div>
         <div class="MLInfo flex flex-col p-2 h-1/4 bg-dark-300 mb-1">
           <h1 class="flex mb-4">
@@ -191,7 +195,7 @@ export default {
               Images accepted
             </p>
             <p class="text-right">
-              {{ `${acceptedImages.length} out of ${clusterArray[selectedClusterIndex].length}` }}
+              {{ `${selectedClustersAcceptedImages.length} out of ${clusterArray[selectedClusterIndex].length}` }}
             </p>
           </div>
         </div>
@@ -221,16 +225,10 @@ export default {
         </h1>
         <div class="flex w-full h-full overflow-x-auto snap snap-mandatory snap-x">
           <div v-for="image in selectedClustersAcceptedImages" :key="image" class="flex flex-col w-80 h-full p-2  overflow-x-auto overflow-y-hidden flex-shrink-0 justify-center items-center snap-start">
-            <img
-              :class="[isImageSelected(image.blob) ? 'border-light-800 border' : 'border border-dark-500']"
-              class="object-contain aspect-auto rounded mb-2 cursor-pointer"
-              :src="image.blob"
-              alt=""
-              srcset=""
-              @click="selectImage(image.blob, selectedClusterIndex)"
-              @dblclick="handleAcceptedImageArrayChange(image.blob)"
-            >
-            <AcceptBtn :is-accepted="isImageAccepted(image.blob)" @click="handleAcceptedImageArrayChange(image.blob)" />
+            <ImageCard
+              :image="image.blob" :index="index" :is-image-selected="isImageSelected(image.blob)" :is-image-accepted="isImageAccepted(image.blob)"
+              @select-image="selectImage(image.blob, selectedClusterIndex)" @handle-accepted-image-array-change="handleAcceptedImageArrayChange(image.blob)"
+            />
           </div>
         </div>
       </div>
@@ -240,16 +238,10 @@ export default {
         </h1>
         <div class="flex w-full h-full overflow-x-auto snap snap-mandatory snap-x">
           <div v-for="image in selectedClustersRejectedImages" :key="image" class="flex flex-col w-80 h-full p-2  overflow-x-auto overflow-y-hidden flex-shrink-0 justify-center items-center snap-start">
-            <img
-              :class="[isImageSelected(image.blob) ? 'border-light-800 border' : 'border border-dark-500']"
-              class="object-contain aspect-auto rounded mb-2 cursor-pointer"
-              :src="image.blob"
-              alt=""
-              srcset=""
-              @click="selectImage(image.blob, selectedClusterIndex)"
-              @dblclick="handleAcceptedImageArrayChange(image.blob)"
-            >
-            <AcceptBtn :is-accepted="isImageAccepted(image.blob)" @click="handleAcceptedImageArrayChange(image.blob)" />
+            <ImageCard
+              :image="image.blob" :index="index" :is-image-selected="isImageSelected(image.blob)" :is-image-accepted="isImageAccepted(image.blob)"
+              @select-image="selectImage(image.blob, selectedClusterIndex)" @handle-accepted-image-array-change="handleAcceptedImageArrayChange(image.blob)"
+            />
           </div>
         </div>
       </div>

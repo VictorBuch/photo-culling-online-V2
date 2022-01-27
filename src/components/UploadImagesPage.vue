@@ -87,7 +87,11 @@ export default {
           this.clusterArray.push(this.imageObjectArray.slice(this.prevClusterIndex, index + 1))
       })
       // TODO: sort the cluster arrays through the ML model
-      this.imageUploadStage = 'waitingForAccept'
+      if (this.unusableImages.length)
+        this.imageUploadStage = 'waitingForAccept'
+
+      else
+        this.$emit('loaded', { array: this.clusterArray })
     },
   },
 }
