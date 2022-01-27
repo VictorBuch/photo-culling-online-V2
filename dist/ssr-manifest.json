@@ -41,141 +41,141 @@
   "src/main.ts": [],
   "index.html": [],
   "node_modules/@intlify/shared/dist/shared.esm-bundler.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/@intlify/message-resolver/dist/message-resolver.esm-bundler.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/@intlify/runtime/dist/runtime.esm-bundler.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/@intlify/message-compiler/dist/message-compiler.esm-bundler.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/@intlify/devtools-if/dist/devtools-if.esm-bundler.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/@intlify/core-base/dist/core-base.esm-bundler.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/shared/dist/shared.esm-bundler.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/vue/dist/vue.runtime.esm-bundler.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/devtools-api/lib/esm/env.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/devtools-api/lib/esm/const.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/devtools-api/lib/esm/proxy.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/devtools-api/lib/esm/api/api.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/devtools-api/lib/esm/api/app.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/devtools-api/lib/esm/api/component.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/devtools-api/lib/esm/api/context.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/devtools-api/lib/esm/api/hooks.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/devtools-api/lib/esm/api/util.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/devtools-api/lib/esm/api/index.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/devtools-api/lib/esm/plugin.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/@vue/devtools-api/lib/esm/index.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/@intlify/vue-devtools/dist/vue-devtools.esm-bundler.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/vue-i18n/dist/vue-i18n.runtime.esm-bundler.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "\u0000commonjsHelpers.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "\u0000/home/victorbuch/Documents/GitHub/photo-culling-online-V2/node_modules/nprogress/nprogress.js?commonjs-module": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/nprogress/nprogress.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/vue-demi/lib/index.mjs": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/pinia/dist/pinia.esm-browser.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/vue-router/dist/vue-router.esm-bundler.js": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/@vueuse/head/dist/index.mjs": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/vite-ssg/dist/chunks/state.mjs": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/vite-ssg/dist/chunks/ClientOnly.mjs": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/vite-ssg/dist/index.mjs": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/exifr/dist/full.esm.mjs": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/vendor.73441bcd.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/vendor.73441bcd.js"
   ],
   "node_modules/workbox-window/build/workbox-window.prod.es5.mjs": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/virtual_pwa-register.5c60e765.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/virtual_pwa-register.f11a3af1.js"
   ],
   "../../../../../@vite-plugin-pwa/virtual:pwa-register": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/virtual_pwa-register.5c60e765.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/virtual_pwa-register.f11a3af1.js"
   ],
   "~icons/carbon/dicom-overlay": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/about.109cd8c1.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/about.109cd8c1.js"
   ],
   "src/pages/about.md": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/about.109cd8c1.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/about.109cd8c1.js"
   ],
   "src/pages/README.md": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/README.6bebb3f9.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/README.6bebb3f9.js"
   ],
   "src/pages/[...all].vue?vue&type=route&index=0&lang.yaml": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/_...all_.c74887b8.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/_...all_.c74887b8.js"
   ],
   "src/pages/[...all].vue": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/_...all_.c74887b8.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/_...all_.c74887b8.js"
   ],
   "~icons/carbon/warning": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/404.52a969ed.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/404.52a969ed.js"
   ],
   "src/layouts/404.vue": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/404.52a969ed.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/404.52a969ed.js"
   ],
   "src/layouts/home.vue": [
-    "/victorbuch.github.io/photo-culling-online-V2./assets/home.4c35cdd4.js"
+    "/victorbuch.github.io/photo-culling-online-V2/assets/home.507c7b49.js"
   ]
 }
