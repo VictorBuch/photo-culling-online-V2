@@ -1,15 +1,3 @@
-<script setup lang="ts">
-// https://github.com/vueuse/head
-// you can use this to manipulate the document head in any components,
-// they will be rendered correctly in the html results with vite-ssg
-useHead({
-  title: 'Photo Culling Online',
-  meta: [
-    { name: 'PhotoCull', content: 'A photo culling app for professional photographers' },
-  ],
-})
-</script>
-
 <template>
-  <router-view />
+  <router-view></router-view>
 </template>
